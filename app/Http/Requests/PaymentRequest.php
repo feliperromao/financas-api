@@ -29,7 +29,8 @@ class PaymentRequest extends FormRequest
             'payment_date' => 'date',
             'repeate' => 'boolean',
             'frequency' => 'string|in:diario,semanal,mensal,anual',
-            'value' => 'float'
+            'pay_in' => 'string',
+            'value' => 'numeric'
         ];
     }
 }

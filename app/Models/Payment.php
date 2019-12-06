@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class Payment extends Model
 {
@@ -10,5 +10,5 @@ class Payment extends Model
 
     protected $connection = 'mongodb';
 
-    protected $fillable = ['title', 'categori_id', 'payment_date', 'repeate', 'frequency','value'];
+    protected $fillable = ['title','categori_id','payment_date','repeate','frequency','pay_in','value'];
 }

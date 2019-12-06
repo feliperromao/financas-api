@@ -6,14 +6,16 @@
     * Titulo: **String**
     * Categoria: **String**
     * Data programado: **Date**
-    * Repmongodbetir: **Boolean**
+    * Repetir: **Boolean**
     * Frequencia: **Enum [diario, semanal, mensal, anual, 2 anos, 3 anos, 5 anos]**
+    * Pagar em: **String** *indica quando será feito o pagamento no caso de pagamentos repetitivos*
     * Valor: **Float**
 
 - [ ] Despesas
     * Titulo: **String**
     * Categoria: **String**
     * Data pagamento: **String**
+    * Pagamento: **Pagamentos ObjectId**
     * Valores: **Array**
         * Descrição: **String**
         * Data: **Date**

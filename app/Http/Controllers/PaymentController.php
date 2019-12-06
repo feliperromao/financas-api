@@ -30,7 +30,7 @@ class PaymentController extends Controller
     {
         $data = $request->all();
         $newPayment = $service->store($data);
-        if (! $newPayment) {
+        if ($newPayment) {
             return response()->json($newPayment, 201);
         }
 
