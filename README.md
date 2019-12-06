@@ -49,37 +49,25 @@
     - [ ] Deslogar
 
 - [ ] Controle de Contas
-    - [ ] Adicionar nova conta
-    - [ ] Editar conta existente
-    - [ ] Excluir conta
+    - [X] Adicionar nova conta
+    - [X] Editar conta existente
+    - [X] Excluir conta
     - [ ] Pagar conta
     - [ ] Listar contas por categoria
     - [ ] Total por categoria
 
-- [ ] Cadastro de Categorias
-    - [ ] Adicionar
-    - [ ] Editar
-    - [ ] Excluir
-    - [ ] Listar todas/uma
+- [X] Cadastro de Categorias
+    - [X] Adicionar
+    - [X] Editar
+    - [X] Excluir
+    - [X] Listar todas/uma
 
 - [ ] Controle de Saldo
 
 - [ ] Relatórios
 
 
-## Fases de Desenvolvimento
-
-1. Planejamento
-    1.1 Escopo
-    1.2 Requisitos
-    1.3 Prototipo basico
-
-2. Desenvolvimento da API
-
-3. Desenvolvimeto do Front/App
-
-
 ## Pacotes para instalar e configurar
 
-- [ ] Laravel mongodb
+- [X] Laravel mongodb
 - [ ] Laravel JWT
