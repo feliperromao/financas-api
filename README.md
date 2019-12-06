@@ -75,3 +75,9 @@
 2. Desenvolvimento da API
 
 3. Desenvolvimeto do Front/App
+
+
+## Pacotes para instalar e configurar
+
+- [ ] Laravel mongodb
+- [ ] Laravel JWT
