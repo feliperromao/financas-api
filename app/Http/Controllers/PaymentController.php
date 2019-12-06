@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
-use Illuminate\Http\Request;
+use App\Services\PaymentService;
+use App\Http\Requests\PaymentRequest as Request;
 
 class PaymentController extends Controller
 {
@@ -12,19 +13,11 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(PaymentService $service)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $paginate = true;
+        $result = $service->index($paginate);
+        return response()->json($result);
     }
 
     /**
@@ -33,9 +26,18 @@ class PaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, PaymentService $service)
     {
-        //
+        $data = $request->all();
+        $newPayment = $service->store($data);
+        if (! $newPayment) {
+            return response()->json($newPayment, 201);
+        }
+
+        return response()->json([
+            'statue' => false,
+            'message' => 'Não foi possivel cadastrar novo pagamento'
+        ], 500);
     }
 
     /**
@@ -46,19 +48,16 @@ class PaymentController extends Controller
      */
     public function show(Payment $payment)
     {
-        //
+        if ($payment) {
+            return response()->json($payment);
+        }
+
+        return response()->json([
+            'statue' => false,
+            'message' => 'Pagamenti não encontrado'
+        ], 404);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Payment  $payment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Payment $payment)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -69,7 +68,11 @@ class PaymentController extends Controller
      */
     public function update(Request $request, Payment $payment)
     {
-        //
+        $data = $request->all();
+
+        $payment->update($data);
+
+        return response()->json($payment);
     }
 
     /**
@@ -80,6 +83,6 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment)
     {
-        //
+        return $payment->delete();
     }
 }

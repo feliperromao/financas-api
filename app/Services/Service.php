@@ -14,7 +14,8 @@ class Service
     public function index($paginate = false)
     {
         if ($paginate) {
-            return $this->model->paginate();
+            $itensPerPage = (int)env('PAGINATION') ?? 20;
+            return $this->model->paginate($itensPerPage);
         }
         return $this->model->all();
     }

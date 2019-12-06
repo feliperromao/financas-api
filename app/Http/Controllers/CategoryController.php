@@ -16,7 +16,8 @@ class CategoryController extends Controller
     public function index(CategoryService $service)
     {
         $paginate = true;
-        return $service->index($paginate);
+        $result = $service->index($paginate);
+        return response()->json($result);
     }
 
     /**
@@ -70,7 +71,7 @@ class CategoryController extends Controller
 
         $category->update($data);
 
-        return $category;
+        return response()->json($category);
     }
 
     /**
