@@ -11,8 +11,11 @@ class Service
         $this->model = $model;
     }
 
-    public function index()
+    public function index($paginate = false)
     {
+        if ($paginate) {
+            return $this->model->paginate();
+        }
         return $this->model->all();
     }
 

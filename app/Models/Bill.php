@@ -8,7 +8,7 @@ class Bill extends Model
 {
     protected $table = 'bills';
 
-    protected $connection = 'mondogb';
+    protected $connection = 'mongodb{{API_URL}}/category';
 
     protected $fillable = ['title'];
 }

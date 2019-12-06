@@ -8,7 +8,7 @@ class Category extends Model
 {
     protected $table = 'categories';
 
-    protected $connection = 'mondogb';
+    protected $connection = 'mongodb';
 
     protected $fillable = ['description'];
 }

@@ -8,7 +8,7 @@ class Payment extends Model
 {
     protected $table = 'payments';
 
-    protected $connection = 'mondogb';
+    protected $connection = 'mongodb';
 
     protected $fillable = ['title', 'categori_id', 'payment_date', 'repeate', 'frequency','value'];
 }

@@ -6,7 +6,7 @@
     * Titulo: **String**
     * Categoria: **String**
     * Data programado: **Date**
-    * Repetir: **Boolean**
+    * Repmongodbetir: **Boolean**
     * Frequencia: **Enum [diario, semanal, mensal, anual, 2 anos, 3 anos, 5 anos]**
     * Valor: **Float**
 
