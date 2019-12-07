@@ -69,7 +69,10 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
+        $user = auth()->user();
         return response()->json([
+            'name' => $user->name,
+            'email' => $user->email,
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60
