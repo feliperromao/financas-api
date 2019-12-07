@@ -33,6 +33,8 @@ Route::prefix('/v1')->group(function(){
     
     });
 
-    Route::resource('/category', 'CategoryController');
-    Route::resource('/payment', 'PaymentController');
+    Route::group(['middleware' => 'api'], function(){
+        Route::resource('/category', 'CategoryController');
+        Route::resource('/payment', 'PaymentController');
+    });
 });
