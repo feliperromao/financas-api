@@ -44,10 +44,12 @@
     - [ ] Total to mes por categoria
 
 - [ ] Autenticação de usuários
+    - [X] Login
+    - [X] Deslogar
+    - [X] Refresh token
+    - [X] User data
     - [ ] Cadastrar-se
-    - [ ] Login
     - [ ] Recuperar senha
-    - [ ] Deslogar
 
 - [ ] Controle de Contas
     - [X] Adicionar nova conta
