@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::group([
     'prefix' => '/v1',
     'middleware' => 'api',
-
+    'namespace' => 'API\V1',
 ], function ($router) {
 
     Route::prefix('/auth')->group(function(){

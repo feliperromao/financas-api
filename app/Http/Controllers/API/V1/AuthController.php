@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PaymentRequest as Request;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {

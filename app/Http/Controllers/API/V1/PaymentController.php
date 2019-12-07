@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
-use App\Models\Category;
-use App\Http\Requests\CategoryRequest as Request;
-use App\Services\CategoryService;
+use App\Models\Payment;
+use App\Services\PaymentService;
+use App\Http\Requests\PaymentRequest as Request;
+use App\Http\Controllers\Controller;
 
-class CategoryController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryService $service)
+    public function index(PaymentService $service)
     {
         $paginate = true;
         $result = $service->index($paginate);
@@ -26,62 +27,63 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, CategoryService $service)
+    public function store(Request $request, PaymentService $service)
     {
         $data = $request->all();
-        $newCategory = $service->store($data);
-        if ($newCategory) {
-            return response()->json($newCategory, 201);
+        $newPayment = $service->store($data);
+        if ($newPayment) {
+            return response()->json($newPayment, 201);
         }
-        
+
         return response()->json([
             'statue' => false,
-            'message' => 'Não foi possivel adicionar nova categoria'
+            'message' => 'Não foi possivel cadastrar novo pagamento'
         ], 500);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Payment $payment)
     {
-        if ($category) {
-            return response()->json($category);
+        if ($payment) {
+            return response()->json($payment);
         }
 
         return response()->json([
             'statue' => false,
-            'message' => 'Categoria não encontrada'
+            'message' => 'Pagamenti não encontrado'
         ], 404);
     }
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Payment $payment)
     {
         $data = $request->all();
 
-        $category->update($data);
+        $payment->update($data);
 
-        return response()->json($category);
+        return response()->json($payment);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Payment $payment)
     {
-        $category->delete();
+        $payment->delete();
     }
 }
