@@ -12,32 +12,6 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'description' => 'Moradia',
-        ]);
-
-        DB::table('users')->insert([
-            'description' => 'Transporte',
-        ]);
-
-        DB::table('users')->insert([
-            'description' => 'Educação',
-        ]);
-
-        DB::table('users')->insert([
-            'description' => 'Alimentação',
-        ]);
-
-        DB::table('users')->insert([
-            'description' => 'Pagamentos em geral',
-        ]);
-
-        DB::table('users')->insert([
-            'description' => 'Higiene pessoal',
-        ]);
-
-        DB::table('users')->insert([
-            'description' => 'Saúde',
-        ]);
+        
     }
 }

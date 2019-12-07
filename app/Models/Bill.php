@@ -10,5 +10,5 @@ class Bill extends Model
 
     protected $connection = 'mongodb';
 
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'user_id'];
 }

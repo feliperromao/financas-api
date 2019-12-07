@@ -13,28 +13,24 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::group([
+    'prefix' => '/v1',
+    'middleware' => 'api',
 
-Route::prefix('/v1')->group(function(){
+], function ($router) {
 
-    Route::group([
+    Route::prefix('/auth')->group(function(){
+        Route::post('/login', 'AuthController@login');
+        Route::post('/logout', 'AuthController@logout');
+        Route::post('/refresh', 'AuthController@refresh');
+        Route::post('/me', 'AuthController@me');
 
-        'middleware' => 'api',
-        'prefix' => 'auth'
-    
-    ], function ($router) {
-    
-        Route::post('login', 'AuthController@login');
-        Route::post('logout', 'AuthController@logout');
-        Route::post('refresh', 'AuthController@refresh');
-        Route::post('me', 'AuthController@me');
-    
     });
 
-    Route::group(['middleware' => 'api'], function(){
+    // Rotas de recursos protegidas por autenticação via token JWT
+    Route::group(['middleware' => 'auth:api'], function(){
         Route::resource('/category', 'CategoryController');
         Route::resource('/payment', 'PaymentController');
     });
+
 });

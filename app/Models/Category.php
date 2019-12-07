@@ -10,5 +10,5 @@ class Category extends Model
 
     protected $connection = 'mongodb';
 
-    protected $fillable = ['description'];
+    protected $fillable = ['description', 'user_id'];
 }
