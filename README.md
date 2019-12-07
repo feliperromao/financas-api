@@ -31,6 +31,7 @@
     * E-mail: **String**
     * Password: **Hash**
     * User type: **Enum [common, vip, admin]**
+    * Ativo: **Boolean**
     * API token: **String**
 
 
