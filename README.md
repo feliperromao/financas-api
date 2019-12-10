@@ -2,7 +2,7 @@
 
 ## Recursos
 
-- [ ] Pagamentos
+- [ ] Pagamentos (*Payment*)
     * Titulo: **String**
     * Categoria: **String**
     * Data programado: **Date**
@@ -11,7 +11,7 @@
     * Pagar em: **String** *indica quando será feito o pagamento no caso de pagamentos repetitivos*
     * Valor: **Float**
 
-- [ ] Despesas
+- [ ] Despesas (*Bill*)
     * Titulo: **String**
     * Categoria: **String**
     * Data pagamento: **String**
@@ -21,12 +21,12 @@
         * Data: **Date**
         * Valor: **Float**
 
-- [ ] Categorias
+- [ ] Categorias (*Category*)
     * Descrição: **String**
     * Custo planejado: **Float**
     * Custo real: **Float**
 
-- [ ] Usuário
+- [ ] Usuário (*User*)
     * Nome: **String**
     * E-mail: **String**
     * Password: **Hash**
@@ -51,13 +51,20 @@
     - [ ] Cadastrar-se
     - [ ] Recuperar senha
 
-- [ ] Controle de Contas
-    - [X] Adicionar nova conta
-    - [X] Editar conta existente
-    - [X] Excluir conta
+- [ ] Controle de Pagamentos
+    - [X] Adiciona
+    - [X] Editar
+    - [X] Excluir
+    - [X] Listar todas/uma
     - [ ] Pagar conta
-    - [ ] Listar contas por categoria
+    - [ ] Listar pagamentos por categoria
     - [ ] Total por categoria
+
+- [ ] Controle de Despesas
+    - [X] Adiciona
+    - [X] Editar
+    - [ ] Excluir
+    - [ ] Listar todas/uma
 
 - [X] Cadastro de Categorias
     - [X] Adicionar
@@ -74,3 +81,9 @@
 
 - [X] Laravel mongodb
 - [ ] Laravel JWT
+- [ ] Habilitar soft delete
+- [ ] Controle de login de usuaruis por status **ativo**
+- [ ] Criar rotas para gereciamento de usuarios
+    - [ ] Editar usuarios
+    - [ ] Desativar
+    - [ ] Criar novo

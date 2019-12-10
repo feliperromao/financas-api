@@ -55,7 +55,7 @@ class PaymentController extends Controller
 
         return response()->json([
             'statue' => false,
-            'message' => 'Pagamenti não encontrado'
+            'message' => 'Pagamento não encontrado'
         ], 404);
     }
 

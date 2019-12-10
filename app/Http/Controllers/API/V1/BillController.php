@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Models\Bill;
-use Illuminate\Http\Request;
+use App\Http\Requests\BillRequest as Request;
+use App\Services\BillService;
 use App\Http\Controllers\Controller;
 
 class BillController extends Controller
@@ -13,30 +14,31 @@ class BillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(BillService $service)
     {
-        //
+        $paginate = true;
+        $result = $service->index($paginate);
+        return response()->json($result);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
+     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, BillService $service)
     {
-        //
+        $data = $request->all();
+        $newBill = $service->store($data);
+        if ($newBill) {
+            return response()->json($newBill, 201);
+        }
+
+        return response()->json([
+            'status' => false,
+            'message' => 'Não foi possivel adicionar nova conta'
+        ], 500);
     }
 
     /**
@@ -47,19 +49,16 @@ class BillController extends Controller
      */
     public function show(Bill $bill)
     {
-        //
+        if ($bill) {
+            return response()->json($bill);
+        }
+
+        return response()->json([
+            'statue' => false,
+            'message' => 'Conta não encontrado'
+        ], 404);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Bill  $bill
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Bill $bill)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +69,11 @@ class BillController extends Controller
      */
     public function update(Request $request, Bill $bill)
     {
-        //
+        $data = $request->all();
+
+        $bill->update($data);
+
+        return response()->json($bill);
     }
 
     /**
@@ -81,6 +84,6 @@ class BillController extends Controller
      */
     public function destroy(Bill $bill)
     {
-        //
+        $bill->delete();
     }
 }
