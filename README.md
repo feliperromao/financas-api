@@ -56,7 +56,8 @@
     - [X] Editar
     - [X] Excluir
     - [X] Listar todas/uma
-    - [ ] Pagar conta
+    - [ ] Pesquisa com filtros
+    - [ ] Pagar conta: *Cria uma nova despesa*
     - [ ] Listar pagamentos por categoria
     - [ ] Total por categoria
 
@@ -65,12 +66,17 @@
     - [X] Editar
     - [ ] Excluir
     - [ ] Listar todas/uma
+    - [ ] Pesquisa com filtros
+    - [ ] Adicionar valor(es)
+    - [ ] Editar valor(es)
+    - [ ] Remover valor(es)
 
 - [X] Cadastro de Categorias
     - [X] Adicionar
     - [X] Editar
     - [X] Excluir
     - [X] Listar todas/uma
+    - [ ] Pesquisa com filtros
 
 - [ ] Controle de Saldo
 
@@ -80,7 +86,9 @@
 ## Pacotes para instalar e configurar
 
 - [X] Laravel mongodb
-- [ ] Laravel JWT
+- [X] Laravel JWT
+- [ ] Implementar Docker para a aplicação
+- [ ] Implementar Docker para o banco de dados
 - [ ] Habilitar soft delete
 - [ ] Controle de login de usuaruis por status **ativo**
 - [ ] Criar rotas para gereciamento de usuarios
