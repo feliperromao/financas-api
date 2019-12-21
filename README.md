@@ -64,12 +64,12 @@
 - [ ] Controle de Despesas
     - [X] Adiciona
     - [X] Editar
-    - [ ] Excluir
-    - [ ] Listar todas/uma
+    - [X] Excluir
+    - [X] Listar todas/uma
     - [ ] Pesquisa com filtros
-    - [ ] Adicionar valor(es)
-    - [ ] Editar valor(es)
-    - [ ] Remover valor(es)
+    - [ ] Adicionar valor
+    - [ ] Editar valor
+    - [ ] Remover valor
 
 - [X] Cadastro de Categorias
     - [X] Adicionar

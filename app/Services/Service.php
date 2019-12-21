@@ -37,6 +37,11 @@ class Service
         ])->first() ?? null;
     }
 
+    public function search()
+    {
+        
+    }
+
     public function update($id, $data)
     {
         $document = $this->model->where([
