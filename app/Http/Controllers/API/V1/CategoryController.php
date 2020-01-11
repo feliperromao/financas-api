@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Models\Category;
-use App\Http\Requests\CategoryRequest as Request;
+use App\Http\Requests\CategoryRequest;
+use Illuminate\Http\Request;
 use App\Services\CategoryService;
 use App\Http\Controllers\Controller;
 
@@ -14,20 +15,17 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryService $service)
+    public function index(Request $request, CategoryService $service)
     {
         $paginate = true;
-        $result = $service->index($paginate);
+        $query = $request->all();
+
+        $result = $service->index($paginate, $query);
         return response()->json($result);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, CategoryService $service)
+
+    public function store(CategoryRequest $request, CategoryService $service)
     {
         $data = $request->all();
         $newCategory = $service->store($data);
@@ -41,12 +39,7 @@ class CategoryController extends Controller
         ], 500);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Category $category)
     {
         if ($category) {
@@ -59,14 +52,8 @@ class CategoryController extends Controller
         ], 404);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Category $category)
+
+    public function update(CategoryRequest $request, Category $category)
     {
         $data = $request->all();
 
@@ -75,12 +62,7 @@ class CategoryController extends Controller
         return response()->json($category);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Category $category)
     {
         $category->delete();

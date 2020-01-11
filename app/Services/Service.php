@@ -14,16 +14,23 @@ class Service
         $this->user_id = auth()->user()->_id;
     }
 
-    public function index($paginate = false)
+    public function index(bool $paginate = false, array $query = [])
     {
+        $result = $this->model->where('user_id', $this->user_id);
+
+        if (count($query) > 0) {
+            $result = $result->whereRaw($query);
+        }
+
         if ($paginate) {
             $itensPerPage = (int)env('PAGINATION') ?? 20;
-            return $this->model->where('user_id', $this->user_id)->paginate($itensPerPage);
+            return $result->paginate($itensPerPage);
         }
-        return $this->model->where('user_id', $this->user_id)->all();
+
+        return $result->all();
     }
 
-    public function store($data)
+    public function store(array $data)
     {
         $data['user_id'] = $this->user_id;
         return $this->model->create($data);
@@ -37,12 +44,7 @@ class Service
         ])->first() ?? null;
     }
 
-    public function search()
-    {
-        
-    }
-
-    public function update($id, $data)
+    public function update($id, array $data)
     {
         $document = $this->model->where([
             '_id' => $id,
