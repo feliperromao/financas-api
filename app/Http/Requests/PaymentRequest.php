@@ -28,7 +28,7 @@ class PaymentRequest extends FormRequest
             'categori_id' => 'required|string',
             'payment_date' => 'date',
             'repeate' => 'boolean',
-            'frequency' => 'string|in:diario,semanal,mensal,anual',
+            'frequency' => 'string|in:DAILY, WEEKLY, MONTHLY, YEARLY',
             'pay_in' => 'string',
             'value' => 'numeric'
         ];

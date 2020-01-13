@@ -16,6 +16,7 @@
     * Categoria: **String**
     * Data pagamento: **String**
     * Pagamento: **Pagamentos ObjectId**
+    * Pago: **Boolean**
     * Valores: **Array**
         * Descrição: **String**
         * Data: **Date**
@@ -24,6 +25,7 @@
 - [ ] Categorias (*Category*)
     * Descrição: **String**
     * Custo planejado: **Float**
+    * Cor: **String**
     * Custo real: **Float**
 
 - [ ] Usuário (*User*)

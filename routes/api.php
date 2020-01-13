@@ -32,6 +32,8 @@ Route::group([
         Route::resource('/category', 'CategoryController');
         Route::resource('/payment', 'PaymentController');
         Route::resource('/bill', 'BillController');
+
+        Route::get('frequency', 'FrequencyController@index')->name('frequency.index');
     });
 
 });
