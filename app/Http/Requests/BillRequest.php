@@ -25,7 +25,7 @@ class BillRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'categori_id' => 'required|string',
+            'category_id' => 'required|string',
             'payment_date' => 'date',
             'values'=> 'array',
             'values.description' => 'string',

@@ -13,7 +13,7 @@ class Bill extends Model
     protected $fillable = [
         'title',
         'user_id',
-        'categori_id',
+        'category_id',
         'payment_date',
         'values',
     ];

@@ -25,10 +25,10 @@ class PaymentRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'categori_id' => 'required|string',
-            'payment_date' => 'date',
+            'category_id' => 'required|string',
+            'payment_date' => 'date_format:Y-m-d',
             'repeate' => 'boolean',
-            'frequency' => 'string|in:DAILY, WEEKLY, MONTHLY, YEARLY',
+            'frequency' => 'string|in:DAILY,WEEKLY,MONTHLY,YEARLY',
             'pay_in' => 'string',
             'value' => 'numeric'
         ];

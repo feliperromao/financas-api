@@ -4,30 +4,24 @@ namespace App\Http\Controllers\API\V1;
 
 use App\Models\Payment;
 use App\Services\PaymentService;
-use App\Http\Requests\PaymentRequest as Request;
+use App\Http\Requests\PaymentRequest;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PaymentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(PaymentService $service)
+
+    public function index(Request $request, PaymentService $service)
     {
         $paginate = true;
-        $result = $service->index($paginate);
+        $query = $request->all();
+
+        $result = $service->index($paginate, $query);
         return response()->json($result);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, PaymentService $service)
+
+    public function store(PaymentRequest $request, PaymentService $service)
     {
         $data = $request->all();
         $newPayment = $service->store($data);
@@ -41,12 +35,7 @@ class PaymentController extends Controller
         ], 500);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Payment  $payment
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Payment $payment)
     {
         if ($payment) {
@@ -60,14 +49,7 @@ class PaymentController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Payment  $payment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Payment $payment)
+    public function update(PaymentRequest $request, Payment $payment)
     {
         $data = $request->all();
 
@@ -76,12 +58,6 @@ class PaymentController extends Controller
         return response()->json($payment);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Payment  $payment
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Payment $payment)
     {
         $payment->delete();

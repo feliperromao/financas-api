@@ -58,9 +58,8 @@
     - [X] Editar
     - [X] Excluir
     - [X] Listar todas/uma
-    - [ ] Pesquisa com filtros
+    - [X] Pesquisa com filtros
     - [ ] Pagar conta: *Cria uma nova despesa*
-    - [ ] Listar pagamentos por categoria
     - [ ] Total por categoria
 
 - [ ] Controle de Despesas
@@ -78,7 +77,7 @@
     - [X] Editar
     - [X] Excluir
     - [X] Listar todas/uma
-    - [ ] Pesquisa com filtros
+    - [X] Pesquisa com filtros
 
 - [ ] Controle de Saldo
 
