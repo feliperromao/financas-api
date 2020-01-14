@@ -62,4 +62,40 @@ class PaymentController extends Controller
     {
         $payment->delete();
     }
+
+    /**
+     * Este método tem como objetivo procesar uma requisição para pagamento de conta
+     * Gerando uma nova instancia de Payment para o usuario
+     */
+    public function payAccount(Request $request, PaymentService $service)
+    {
+        $request->validate([
+            'payment_id' => 'required|string'
+        ]);
+
+        $payment_id = $request->get('payment_id');
+        $payment = $service->show($payment_id);
+
+        if (! $payment) {
+            return response()->json([
+                'statue' => false,
+                'message' => 'Pagamento não encontrado'
+            ], 404);
+        }
+
+        $paid = $service->payAccount($payment);
+
+        if ($paid) {
+            return response()->json([
+                'statue' => true,
+                'message' => 'Pagamento realizado com sucesso'
+            ], 200);
+        }
+
+        return response()->json([
+            'statue' => false,
+            'message' => 'Não foi possivel realizar o pagamento'
+        ], 500);
+
+    }
 }

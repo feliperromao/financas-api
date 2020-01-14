@@ -34,6 +34,10 @@ Route::group([
         Route::resource('/bill', 'BillController');
 
         Route::get('frequency', 'FrequencyController@index')->name('frequency.index');
+
+        Route::post('payment/pay', 'PaymentController@payAccount')->name('payment.pay');
+
+        
     });
 
 });

@@ -10,5 +10,14 @@ class Payment extends Model
 
     protected $connection = 'mongodb';
 
-    protected $fillable = ['title','category_id','payment_date','repeate','frequency','pay_in','value', 'user_id'];
+    protected $fillable = [
+        'title',
+        'category_id',
+        'payment_date',
+        'repeate',
+        'frequency',
+        'pay_in',
+        'value',
+        'user_id'
+    ];
 }

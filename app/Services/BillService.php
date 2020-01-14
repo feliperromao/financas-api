@@ -9,9 +9,9 @@ use App\Models\Bill;
  */
 class BillService extends Service
 {
-    public function __construct(Bill $category)
+    public function __construct(Bill $bill)
     {
-        parent::__construct($category);
+        parent::__construct($bill);
     }
 
 }
