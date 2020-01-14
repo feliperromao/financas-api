@@ -67,7 +67,7 @@
     - [X] Editar
     - [X] Excluir
     - [X] Listar todas/uma
-    - [ ] Pesquisa com filtros
+    - [X] Pesquisa com filtros
     - [ ] Adicionar valor
     - [ ] Editar valor
     - [ ] Remover valor

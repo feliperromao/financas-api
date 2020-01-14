@@ -3,31 +3,24 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Models\Bill;
-use App\Http\Requests\BillRequest as Request;
+use App\Http\Requests\BillRequest;
+use Illuminate\Http\Request;
 use App\Services\BillService;
 use App\Http\Controllers\Controller;
 
 class BillController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(BillService $service)
+
+    public function index(Request $request, BillService $service)
     {
         $paginate = true;
-        $result = $service->index($paginate);
+        $query = $request->all();
+
+        $result = $service->index($paginate, $query);
         return response()->json($result);
     }
 
-     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, BillService $service)
+    public function store(BillRequest $request, BillService $service)
     {
         $data = $request->all();
         $newBill = $service->store($data);
@@ -41,12 +34,6 @@ class BillController extends Controller
         ], 500);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Bill  $bill
-     * @return \Illuminate\Http\Response
-     */
     public function show(Bill $bill)
     {
         if ($bill) {
@@ -60,14 +47,7 @@ class BillController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Bill  $bill
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Bill $bill)
+    public function update(BillRequest $request, Bill $bill)
     {
         $data = $request->all();
 
@@ -76,12 +56,6 @@ class BillController extends Controller
         return response()->json($bill);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Bill  $bill
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Bill $bill)
     {
         $bill->delete();
