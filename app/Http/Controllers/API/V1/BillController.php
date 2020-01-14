@@ -60,4 +60,20 @@ class BillController extends Controller
     {
         $bill->delete();
     }
+
+    /**
+     * Lista todas as despesas cadastradas em determinado mês
+     */
+    public function byMonth(Request $request)
+    {
+        $request->validate([
+            'month' => 'required|int',
+            'year' => 'required|int'
+        ]);
+
+        $month = $request->get('month');
+        $year = $request->get('year');
+
+        
+    }
 }

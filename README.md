@@ -53,26 +53,27 @@
     - [ ] Cadastrar-se
     - [ ] Recuperar senha
 
-- [ ] Controle de Pagamentos
+- [ ] Controle de Pagamentos (*Payment*)
     - [X] Adiciona
     - [X] Editar
     - [X] Excluir
     - [X] Listar todas/uma
     - [X] Pesquisa com filtros
-    - [ ] Pagar conta: *Cria uma nova despesa*
-    - [ ] Total por categoria
+    - [X] Pagar conta: *Cria uma nova despesa*
 
-- [ ] Controle de Despesas
+- [ ] Controle de Despesas (*Bill*)
     - [X] Adiciona
     - [X] Editar
     - [X] Excluir
     - [X] Listar todas/uma
     - [X] Pesquisa com filtros
+    - [ ] Total por periodo
+    - [ ] Total por categoria
     - [ ] Adicionar valor
     - [ ] Editar valor
     - [ ] Remover valor
 
-- [X] Cadastro de Categorias
+- [X] Cadastro de Categorias (*Category*)
     - [X] Adicionar
     - [X] Editar
     - [X] Excluir
